@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class CLIENT(models.Model):
-  CPF = models.IntegerField(primary_key=True)
+  CPF = models.CharField(primary_key=True, max_length=11)
   NAME = models.CharField(max_length=50)
   PHONE = models.CharField(max_length=22)
   REGISTERED = models.DateTimeField()
