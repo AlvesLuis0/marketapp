@@ -3,6 +3,7 @@ Este é uma simples API desenvolvida em Python com Django. Com este app é poss�
 visualizar e apresentar todos os registros de clientes e produtos.
 
 ## Tabelas
+A seguir, a estrutura das tabelas dos clientes e produtos, que serão implementadas no Django.
 
 ### Clientes
 
@@ -37,3 +38,18 @@ CREATE TABLE PRODUCT (
 - [ ] `/product/get` -> Tabela de produtos;
 - [ ] `/product/post` -> Formulário para cadastrar produto;
 - [ ] `/product/delete/<int>` -> Endpoint para deletar registro de um produto.
+
+## Extras de desenvolvimento
+A seguir, alguns scripts para auxiliar no desenvolvimento do projeto, mas antes, você deve executar os seguintes comandos para dar permissão de execução de arquivos:
+```console
+chmod +x build.sh
+chmod +x clear.sh
+```
+
+### Construir o Banco de Dados
+Execute o comando `./build.sh` para criar o banco de dados, incluindo clientes, produtos e usuários do
+painel de admin.
+
+### Resetar o Banco de Dados
+Execute o comando `./clear.sh` para limpar todo o banco de dados, incluindo clientes, produtos e usuários
+do painel de admin.

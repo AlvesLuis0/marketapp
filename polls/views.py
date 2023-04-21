@@ -9,6 +9,11 @@ def index(request):
   return render(request, "index.html")
 
 def clientPost(request):
+  # method get
+  if request.method == "GET":
+    return render(request, "client/post.html")
+
+  # method post
   client = CLIENT()
   client.NAME = request.POST.get("nome")
   client.CPF = request.POST.get("cpf")
@@ -18,6 +23,11 @@ def clientPost(request):
   return HttpResponseRedirect(f"/client/get/{request.POST.get('cpf')}")
 
 def productPost(request):
+  # method get
+  if request.method == "GET":
+    return render(request, "product/post.html")
+
+  # method post
   product = PRODUCT()
   product.NAME = request.POST.get("produto")
   product.PRICE = request.POST.get("valor")
