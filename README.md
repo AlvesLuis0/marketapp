@@ -8,7 +8,7 @@ visualizar e apresentar todos os registros de clientes e produtos.
 
 ```SQL
 CREATE TABLE CLIENT (
-	CPF INTEGER PRIMARY KEY,
+	CPF CHAR(11) PRIMARY KEY,
 	NAME CHAR(50),
 	PHONE CHAR(22),
 	REGISTERED DATE

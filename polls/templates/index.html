@@ -21,7 +21,7 @@
       <input type="submit" value="Cadastrar">
     </form>
     <h2>Cadastro de produtos</h2>
-    <form action="/product/post" autocomplete="off">
+    <form action="/product/post" method="post" autocomplete="off">
       {% csrf_token %}
       <label for="produto">Produto:</label>
       <input type="text" id="produto" name="produto" required><br><br>

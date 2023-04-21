@@ -18,4 +18,10 @@ def clientPost(request):
   return HttpResponseRedirect(f"/client/get/{request.POST.get('cpf')}")
 
 def productPost(request):
-  return HttpResponseRedirect(f"/client/get/{request.POST.get('produto')}")
+  product = PRODUCT()
+  product.NAME = request.POST.get("produto")
+  product.PRICE = request.POST.get("valor")
+  product.QUANTITY = request.POST.get("quantidade")
+  product.REGISTERED = timezone.now()
+  product.save()
+  return HttpResponseRedirect(f"/client/get/{product.ID}")
