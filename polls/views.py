@@ -20,7 +20,7 @@ def clientPost(request):
   client.PHONE = request.POST.get("telefone")
   client.REGISTERED = timezone.now()
   client.save()
-  return HttpResponseRedirect(f"/client/get/{request.POST.get('cpf')}")
+  return HttpResponseRedirect("/client/get")
 
 def productPost(request):
   # method get
@@ -34,7 +34,7 @@ def productPost(request):
   product.QUANTITY = request.POST.get("quantidade")
   product.REGISTERED = timezone.now()
   product.save()
-  return HttpResponseRedirect(f"/client/get/{product.ID}")
+  return HttpResponseRedirect("/product/get")
 
 def clientGet(request):
   clients = CLIENT.objects.all().order_by("-REGISTERED")

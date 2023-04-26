@@ -29,7 +29,7 @@ CREATE TABLE PRODUCT (
 ```
 
 ## Urls
-- [ ] `/` -> Página inicial _(Leva para a visualização e cadastro de clientes e produtos)_;
+- [x] `/` -> Página inicial _(Leva para a visualização e cadastro de clientes e produtos)_;
 
 - [x] `/client/get` -> Tabela de clientes;
 - [x] `/client/post` -> Formulário para cadastrar cliente;
