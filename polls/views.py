@@ -35,3 +35,13 @@ def productPost(request):
   product.REGISTERED = timezone.now()
   product.save()
   return HttpResponseRedirect(f"/client/get/{product.ID}")
+
+def clientGet(request):
+  clients = CLIENT.objects.all().order_by("-REGISTERED")
+  context = { "clients": clients }
+  return render(request, "client/get.html", context)
+
+def productGet(request):
+  products = PRODUCT.objects.all().order_by("-REGISTERED")
+  context = { "products": products }
+  return render(request, "product/get.html", context)

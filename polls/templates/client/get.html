@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<html lang="pt-br">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Supermercado</title>
+  </head>
+  <body>
+		<h1 style="text-align: center;">Lista de clientes</h1>
+		<table border="1px solid" style="width: 70%; margin: auto;">
+			<tr>
+				<th>CPF</th>
+				<th>NOME</th>
+				<th>TELEFONE</th>
+				<th>REGISTRADO EM</th>
+			</tr>
+			{% for client in clients %}
+			<tr>
+				<td>{{ client.CPF }}</td>
+				<td>{{ client.NAME }}</td>
+				<td>{{ client.PHONE }}</td>
+				<td>{{ client.REGISTERED }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+  </body>
+</html>

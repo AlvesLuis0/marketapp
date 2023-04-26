@@ -31,13 +31,11 @@ CREATE TABLE PRODUCT (
 ## Urls
 - [ ] `/` -> Página inicial _(Leva para a visualização e cadastro de clientes e produtos)_;
 
-- [ ] `/client/get` -> Tabela de clientes;
-- [ ] `/client/post` -> Formulário para cadastrar cliente;
-- [ ] `/client/delete/<int>` -> Endpoint para deletar registro de um cliente;
+- [x] `/client/get` -> Tabela de clientes;
+- [x] `/client/post` -> Formulário para cadastrar cliente;
 
-- [ ] `/product/get` -> Tabela de produtos;
-- [ ] `/product/post` -> Formulário para cadastrar produto;
-- [ ] `/product/delete/<int>` -> Endpoint para deletar registro de um produto.
+- [x] `/product/get` -> Tabela de produtos;
+- [x] `/product/post` -> Formulário para cadastrar produto;
 
 ## Extras de desenvolvimento
 A seguir, alguns scripts para auxiliar no desenvolvimento do projeto, mas antes, você deve executar os seguintes comandos para dar permissão de execução de arquivos:
