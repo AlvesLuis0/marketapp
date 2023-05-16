@@ -30,12 +30,10 @@ CREATE TABLE PRODUCT (
 
 ## Urls
 - [x] `/` -> Página inicial _(Leva para a visualização e cadastro de clientes e produtos)_;
-
 - [x] `/client/get` -> Tabela de clientes;
 - [x] `/client/post` -> Formulário para cadastrar cliente;
-
 - [x] `/product/get` -> Tabela de produtos;
-- [x] `/product/post` -> Formulário para cadastrar produto;
+- [x] `/product/post` -> Formulário para cadastrar produto.
 
 ## Extras de desenvolvimento
 A seguir, alguns scripts para auxiliar no desenvolvimento do projeto, mas antes, você deve executar os seguintes comandos para dar permissão de execução de arquivos:
@@ -51,3 +49,11 @@ painel de admin.
 ### Resetar o Banco de Dados
 Execute o comando `./clear.sh` para limpar todo o banco de dados, incluindo clientes, produtos e usuários
 do painel de admin.
+
+## Futuras implementações
+- [ ] Tela de login;
+- [ ] Além do cliente, terá o funcionário e o administrador;
+- [ ] Cada cargo terá seu painel personalizado com suas respectivas permissões;
+- [ ] O cliente pode apenas ver os produtos cadastrados, e comprá-los;
+- [ ] O funcionário pode manipular o banco de dados (criar, alterar e deletar **produtos**);
+- [ ] O administrador pode adicionar e deletar **funcionários**, além das permissões anteriores.
