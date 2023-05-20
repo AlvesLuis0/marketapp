@@ -29,8 +29,8 @@ def productPost(request):
 
   # method post
   product = PRODUCT()
-  product.NAME = request.POST.get("produto")
-  product.PRICE = request.POST.get("valor")
+  product.NAME = request.POST.get("nome")
+  product.PRICE = request.POST.get("preco")
   product.QUANTITY = request.POST.get("quantidade")
   product.REGISTERED = timezone.now()
   product.save()
