@@ -13,14 +13,5 @@ def createClient(request):
 	client.save()
 	return HttpResponseRedirect(f"/?username={client.USERNAME}&password={client.PASSWORD}")
 
-def clientView(request):
-	try:
-		client = PERSON.objects.get(
-			USERNAME=request.GET.get("username"),
-			PASSWORD=request.GET.get("password")
-		)
-		return  HttpResponse(client.USERNAME)
-
-	except:
-		return HttpResponseRedirect("/register")
-	
+def clientView(client: PERSON):
+	return HttpResponse(f"{client.USERNAME} : {client.PERMISSION}")
