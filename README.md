@@ -8,10 +8,12 @@ A seguir, a estrutura das tabelas dos clientes e produtos, que serão implementa
 ### Clientes
 
 ```SQL
-CREATE TABLE CLIENT (
+CREATE TABLE PERSON (
 	CPF CHAR(11) PRIMARY KEY,
-	NAME CHAR(50),
+	USERNAME CHAR(50),
+	PASSWORD CHAR(50),
 	PHONE CHAR(22),
+	PERMISSION CHAR(25),
 	REGISTERED DATE
 );
 ```
@@ -51,7 +53,7 @@ Execute o comando `./clear.sh` para limpar todo o banco de dados, incluindo clie
 do painel de admin.
 
 ## Futuras implementações
-- [ ] Tela de login;
+- [x] Tela de login;
 - [ ] Além do cliente, terá o funcionário e o administrador;
 - [ ] Cada cargo terá seu painel personalizado com suas respectivas permissões;
 - [ ] O cliente pode apenas ver os produtos cadastrados, e comprá-los;

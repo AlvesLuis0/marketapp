@@ -1,10 +1,12 @@
 from django.db import models
 
 # Create your models here.
-class CLIENT(models.Model):
+class PERSON(models.Model):
   CPF = models.CharField(primary_key=True, max_length=11)
-  NAME = models.CharField(max_length=50)
+  USERNAME = models.CharField(max_length=50)
+  PASSWORD = models.CharField(max_length=50)
   PHONE = models.CharField(max_length=22)
+  PERMISSION = models.CharField(max_length=25)
   REGISTERED = models.DateTimeField()
 
   def __str__(self):
