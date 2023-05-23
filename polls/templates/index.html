@@ -1,0 +1,23 @@
+{% load static %}
+<!doctype html>
+<html> 
+<head> 
+    <title>Painel do Cliente</title> 
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head> 
+<body> 
+    <a href="/login"><button>Logar como funcionário</button></a>
+    <h1>Painel do Cliente</h1> 
+    <div class="card-container"> 
+        {% for product in products %}
+        <a href="/product/{{ product.id }}">
+            <div class="card"> 
+                <h3>{{ product.NAME }}</h3> 
+                <p>Quantidade em estoque {{ product.QUANTITY }}.</p> 
+                <p class="card-price">Preço: R$ {{ product.PRICE }}</p> 
+            </div> 
+        </a>
+        {% endfor %}
+    </div> 
+</body>
+</html>

@@ -1,30 +1,22 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from .controller import clientController, employeeController
-from .models import PERSON
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.models import User
+from .models import PRODUCT
 
 # Create your views here.
+def home(request):
+	products = PRODUCT.objects.all()
+	return render(request, "index.html", {
+		"products": products
+	})
+
 def login(request):
-	return render(request, "login.html")
-
-def register(request):
-	return render(request, "register.html")
-
-def panel(request):
-	try:
-		person = PERSON.objects.get(
-			USERNAME=request.GET.get("username"),
-			PASSWORD=request.GET.get("password")
-		)
+	if request.method == "GET":
+		return render(request, "login.html")
 	
-		if person.PERMISSION == "CLIENT":
-			return clientController.clientView(person)
-
-		if person.PERMISSION == "EMPLOYEE":
-			return employeeController.employeeView(person)
-
-	except:
-		return HttpResponseRedirect("/register")
-
-createClient = clientController.createClient
-clientView = clientController.clientView
+	get_object_or_404(User,
+		username=request.POST["username"],
+		password=request.POST["password"]
+	)
+	
+	print("logado")
+	return render(request)
