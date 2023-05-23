@@ -10,8 +10,12 @@
   <div class="container">
     <h2>Login</h2>
 
-    <form autocomplete="off" action="/login/" method="POST">
+    <form autocomplete="off" action="/login/" method="post">
       {% csrf_token %}
+      {% if error %}
+      <p style="color: red">Usuário ou senha incorretos</p>
+      {% endif %}
+
       <label for="username">Usuário:</label>
       <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
 
