@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 from .models import PRODUCT
 
 # Create your views here.
@@ -22,7 +23,8 @@ def loginPage(request):
 		login(request, user)
 		return redirect("/")
 
-	return render(request, "login.html", { "error": True })
+	messages.error(request, "Usuário ou senha incorretos")
+	return render(request, "login.html")
 
 def signoutPage(request):
 	logout(request)

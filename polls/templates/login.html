@@ -12,8 +12,10 @@
 
     <form autocomplete="off" action="/login/" method="post">
       {% csrf_token %}
-      {% if error %}
-      <p style="color: red">Usuário ou senha incorretos</p>
+      {% if messages %}
+      {% for message in messages %}
+      <p style="color: red">{{ message }}</p>
+      {% endfor %}
       {% endif %}
 
       <label for="username">Usuário:</label>
