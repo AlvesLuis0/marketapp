@@ -5,19 +5,6 @@ visualizar e apresentar todos os registros de clientes e produtos.
 ## Tabelas
 A seguir, a estrutura das tabelas dos clientes e produtos, que serão implementadas no Django.
 
-### Clientes
-
-```SQL
-CREATE TABLE PERSON (
-	CPF CHAR(11) PRIMARY KEY,
-	USERNAME CHAR(50),
-	PASSWORD CHAR(50),
-	PHONE CHAR(22),
-	PERMISSION CHAR(25),
-	REGISTERED DATE
-);
-```
-
 ### Produtos
 
 ```SQL
@@ -26,7 +13,6 @@ CREATE TABLE PRODUCT (
 	NAME CHAR(50),
 	PRICE DECIMAL,
 	QUANTITY INTEGER DEFAULT 0,
-	REGISTERED DATE
 );
 ```
 

@@ -1,9 +1,10 @@
 from django.urls import path
 
-from . import views
+from .controllers import productController
+from .controllers import authController
 
 urlpatterns = [
-  path("", views.homePage, name="index"),
-  path("login/", views.loginPage, name="login"),
-  path("logout/", views.signoutPage, name="logout")
+  path("", productController.getProducts, name="index"),
+  path("login/", authController.loginController, name="login"),
+  path("logout/", authController.logoutController, name="logout")
 ]
