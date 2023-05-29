@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import user_passes_test
 @user_passes_test(lambda user: user.is_superuser, "/login")
 def registerEmployee(request):
 	if request.method == "GET":
-		return render(request, "employee/register.html")
+		return render(request, "employee/register-employee.html")
 	
 	try:
 		user = User()
@@ -28,4 +28,4 @@ def registerEmployee(request):
 		return redirect("/employee/register")
 	
 	messages.success(request, f"Funcionário '{user.username}' cadastrado com sucesso")
-	return render(request, "employee/register.html")
+	return render(request, "employee/register-employee.html")

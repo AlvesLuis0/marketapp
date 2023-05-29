@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Supermercado | Atualizar {{ product.NAME }}</title>
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+  <a href="/"><button>Painel de itens</button></a>
+  <div class="container">
+    <h2>{{ product.NAME }}</h2>
+
+    <form autocomplete="off" action="{% url 'updateProduct' product.id %}" method="post">
+      {% csrf_token %}
+      {% if messages %}
+        {% for message in messages %}
+          {% if message.tags == "success" %}
+          <p style="color: green">{{ message }}</p>
+          {% else %}
+          <p style="color: red">{{ message }}</p>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+      <label for="name">Nome:</label>
+      <input type="text" maxlength="50" id="name" value="{{ product.NAME }}" name="name" placeholder="Digite o nome do produto" required>
+
+      <label for="price">Preço:</label>
+      <input type="number" id="price" min="0" max="9999" value="{{ product.PRICE }}" step="0.01" pattern="^\d+(?:\.\d{1,2})?$" name="price" placeholder="Digite o preço do produto" required>
+
+      <label for="quantity">Quantidade:</label>
+      <input type="number" id="quantity" min="0" value="{{ product.QUANTITY }}" name="quantity" placeholder="Digite a quantidade do produto no estoque" required>
+      <button type="submit">Atualizar</button>
+    </form>
+    <form autocomplete="off" action="{% url 'deleteProduct' product.id %}" method="post">
+      {% csrf_token %}
+      <button type="submit" style="background-color: red">Deletar Produto</button>
+    </form>
+  </div>
+</body>
+</html>

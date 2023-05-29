@@ -40,8 +40,8 @@ do painel de admin.
 
 ## Futuras implementações
 - [x] Tela de login;
-- [ ] Além do cliente, terá o funcionário e o administrador;
-- [ ] Cada cargo terá seu painel personalizado com suas respectivas permissões;
+- [x] Além do cliente, terá o funcionário e o administrador;
+- [x] Cada cargo terá seu painel personalizado com suas respectivas permissões;
 - [ ] O cliente pode apenas ver os produtos cadastrados, e comprá-los;
 - [ ] O funcionário pode manipular o banco de dados (criar, alterar e deletar **produtos**);
 - [ ] O administrador pode adicionar e deletar **funcionários**, além das permissões anteriores.
