@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.http import HttpRequest
 
-def loginController(request):
+def loginController(request: HttpRequest):
 	if request.method == "GET":
 		return render(request, "auth/login.html")
 	
@@ -16,7 +17,7 @@ def loginController(request):
 		return redirect("/")
 
 	messages.error(request, "Usuário ou senha incorretos")
-	return render(request, "auth/login.html")
+	return redirect("/login")
 
 def logoutController(request):
 	logout(request)

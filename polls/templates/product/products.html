@@ -15,6 +15,13 @@
         <button>Logar</button>
     </a>
     {% endif %}
+
+    {% if request.user.is_staff %}
+    <a href="/product/register">
+        <button>Cadastrar produto</button>
+    </a>
+    {% endif %}
+
     <h1>Painel do Cliente</h1> 
     <div class="card-container"> 
         {% for product in products %}
