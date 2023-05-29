@@ -39,10 +39,9 @@ def deleteProduct(request, pk):
 	try:
 		PRODUCT.objects.get(pk=pk).delete()
 	
-	except:
-		pass
+	except: pass
 
-	return redirect(request, "/")
+	return redirect("/")
 
 @login_required(login_url="/login/")
 def registerProduct(request):

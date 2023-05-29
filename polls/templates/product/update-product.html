@@ -10,7 +10,7 @@
   <div class="container">
     <h2>{{ product.NAME }}</h2>
 
-    <form autocomplete="off" action="{% url 'updateProduct' product.id %}" method="post">
+    <form autocomplete="off" action="/product/update/{{ product.id }}/" method="post">
       {% csrf_token %}
       {% if messages %}
         {% for message in messages %}
@@ -32,7 +32,7 @@
       <input type="number" id="quantity" min="0" value="{{ product.QUANTITY }}" name="quantity" placeholder="Digite a quantidade do produto no estoque" required>
       <button type="submit">Atualizar</button>
     </form>
-    <form autocomplete="off" action="{% url 'deleteProduct' product.id %}" method="post">
+    <form autocomplete="off" action="/product/delete/{{ product.id }}/" method="post">
       {% csrf_token %}
       <button type="submit" style="background-color: red">Deletar Produto</button>
     </form>
