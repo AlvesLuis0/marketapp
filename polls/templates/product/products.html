@@ -22,6 +22,12 @@
     </a>
     {% endif %}
 
+    {% if request.user.is_superuser %}
+    <a href="/employee/register">
+        <button>Cadastrar funcionário</button>
+    </a>
+    {% endif %}
+
     <h1>Painel do Cliente</h1> 
     <div class="card-container"> 
         {% for product in products %}
