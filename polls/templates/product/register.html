@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Supermercado | Cadastrar Produto</title>
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+  <a href="/"><button>Painel de itens</button></a>
+  <div class="container">
+    <h2>Produto</h2>
+
+    <form autocomplete="off" action="/product/register/" method="post">
+      {% csrf_token %}
+      {% if messages %}
+      {% for message in messages %}
+      <p style="color: lightgreen">{{ message }}</p>
+      {% endfor %}
+      {% endif %}
+
+      <label for="name">Nome:</label>
+      <input type="text" maxlength="50" id="name" name="name" placeholder="Digite o nome do produto" required>
+
+      <label for="price">Senha:</label>
+      <input type="number" id="price" min="0" maxlength="7" step="0.01" pattern="^\d+(?:\.\d{1,2})?$" name="price" placeholder="Digite o preço do produto" required>
+
+      <label for="quantity">Quantidade:</label>
+      <input type="number" id="quantity" min="0" name="quantity" placeholder="Digite quantidade do produto no estoque" required>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+</body>
+</html>

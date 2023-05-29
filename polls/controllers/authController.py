@@ -4,7 +4,7 @@ from django.contrib import messages
 
 def loginController(request):
 	if request.method == "GET":
-		return render(request, "login.html")
+		return render(request, "auth/login.html")
 	
 	user = authenticate(request,
 		username=request.POST["username"],
@@ -16,7 +16,7 @@ def loginController(request):
 		return redirect("/")
 
 	messages.error(request, "Usuário ou senha incorretos")
-	return render(request, "login.html")
+	return render(request, "auth/login.html")
 
 def logoutController(request):
 	logout(request)
