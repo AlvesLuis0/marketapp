@@ -12,11 +12,15 @@ urlpatterns = [
   path("product/delete/<int:pk>/", productController.deleteProduct, name="deleteProduct"),
   path("product/<int:pk>/", productController.getProduct, name="getProduct"),
   path("product/add/<int:pk>/", cartController.addToCart, name="addToCart"),
+  path("product/cart/", cartController.getCart, name="getCart"),
+  path("product/cart/delete/<int:pk>/", cartController.deleteFromCart, name="deleteFromCart"),
+
   path("employee/", employeeController.getAllEmployees, name="getAllEmployees"),
   path("employee/register/", employeeController.registerEmployee, name="registerEmployee"),
   path("employee/update/<int:pk>/", employeeController.updateEmployee, name="updateEmployee"),
   path("employee/delete/<int:pk>/", employeeController.deleteEmployee, name="deleteEmployee"),
   path("employee/<int:pk>/", employeeController.getEmployee, name="getEmployee"),
+
   path("login/", authController.loginController, name="login"),
   path("logout/", authController.logoutController, name="logout")
 ]

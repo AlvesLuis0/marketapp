@@ -6,7 +6,10 @@
   <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
-  <a href="/"><button>Painel de itens</button></a>
+  <div class="return">
+    <a href="/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAALNJREFUSEvllNENgzAMBY8N2ISO0I7AJKzQbsQGdATYhBGQJaisKISYmI8KvqM7P9u44uKvupjPfQQ10AEfa0tzWiTwAXisgrdFciTQ8Al4ArOXoBguhewlcIHvCdzgMYErPBRouGWOsbe/1usZiOALNKV0PdtwyFoyAi/rWobFxbbIVZJa061dRUlSf7JLkpxTUZTkSCAz00laoLdsWY5gk8ihM8FTt8hSZPJtboLTwv8XLAoZJhna+F7zAAAAAElFTkSuQmCC"/></a>
+  </div>
+  <a href="/product/cart"><button>Carrinho (0)</button></a>
   <div class="container">
     <h2>{{ product.NAME }}</h2>
 

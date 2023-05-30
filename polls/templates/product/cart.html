@@ -1,0 +1,40 @@
+{% load static %}
+<!doctype html>
+<html> 
+ <head> 
+  <title>Supermercado | Carrinho</title> 
+	<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+</head>
+<body>
+  <div class="return">
+    <a href="/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAALNJREFUSEvllNENgzAMBY8N2ISO0I7AJKzQbsQGdATYhBGQJaisKISYmI8KvqM7P9u44uKvupjPfQQ10AEfa0tzWiTwAXisgrdFciTQ8Al4ArOXoBguhewlcIHvCdzgMYErPBRouGWOsbe/1usZiOALNKV0PdtwyFoyAi/rWobFxbbIVZJa061dRUlSf7JLkpxTUZTkSCAz00laoLdsWY5gk8ihM8FTt8hSZPJtboLTwv8XLAoZJhna+F7zAAAAAElFTkSuQmCC"/></a>
+  </div>
+  <h1>Painel de Compras</h1>
+  
+	{% if products %}
+			<table id="itemTable">
+				<tr>
+					<th>Item</th>
+					<th>Quantidade</th>
+					<th>Preço</th>
+					<th></th>
+				</tr>
+				{% for product in products %}
+					<tr>
+						<td><a href="/product/{{ product.id }}/">{{ product.NAME }}</a></td>
+						<td>{{ product.QUANTITY }}</td>
+						<td>R$ {{ product.PRICE }}</td>
+						<td><a href="/product/cart/delete/{{ product.id }}/" class="button">Remover</a></td>
+					</tr>
+				{% endfor %}
+			</table>
+
+		<div class="botaocompra">
+			<a href="#" class="compra">Finalizar compra</a>
+		</div>
+  {% else %}
+		<h3 style="text-align: center;">Carrinho vazio</h3>
+	{% endif %}
+ 
+</body>
+</html>
