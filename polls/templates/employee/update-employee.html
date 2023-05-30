@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Supermercado | Atualizar {{ employee.username }}</title>
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+  <a href="/employee"><button>Painel de funcionários</button></a>
+  <div class="container">
+    <h2>Funcionário</h2>
+
+    <form autocomplete="off" action="/employee/update/{{ employee.id }}/" method="post">
+      {% csrf_token %}
+      {% if messages %}
+        {% for message in messages %}
+          {% if message.tags == "success" %}
+          <p style="color: green">{{ message }}</p>
+          {% else %}
+          <p style="color: red">{{ message }}</p>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+      <label for="username">Usuário:</label>
+      <input type="text" maxlength="50" id="username" value="{{ employee.username }}" name="username" placeholder="Digite o nome do funcionário" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value="{{ employee.email }}" placeholder="Digite o email do funcionário" required>
+
+      <label for="password">Senha:</label>
+      <input type="password" maxlength="50" id="password" name="password" placeholder="Digite a senha do funcionário" required>
+
+      {% if employee.is_superuser %}
+        <input type="radio" name="role" id="role1" value="staff">
+        <label for="role1">Staff</label>
+        <input type="radio" name="role" id="role2" value="admin" checked>
+        <label for="role1">Admin</label>
+      {% else %}
+        <input type="radio" name="role" id="role1" value="staff" checked>
+        <label for="role1">Staff</label>
+        <input type="radio" name="role" id="role2" value="admin">
+        <label for="role1">Admin</label>
+      {% endif %}
+      <button type="submit">Atualizar</button>
+    </form>
+    <form autocomplete="off" action="/employee/delete/{{ employee.id }}/" method="post">
+      {% csrf_token %}
+      <button type="submit" style="background-color: red">Deletar Funcionário</button>
+    </form>
+  </div>
+</body>
+</html>

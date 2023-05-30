@@ -1,0 +1,36 @@
+{% load static %}
+<!doctype html>
+<html> 
+<head> 
+    <title>Supermercado | Funcionários</title> 
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head> 
+<body> 
+    <a href="/logout">
+        <button>Deslogar</button>
+    </a>
+    <a href="/employee/register">
+        <button>Cadastrar funcionário</button>
+    </a>
+    <a href="/">
+        <button>Ver produtos</button>
+    </a>
+
+    <h1>Painel de Funcionários</h1> 
+    <div class="card-container"> 
+        {% for employee in employees %}
+            <a href="/employee/{{ employee.id }}">
+                <div class="card"> 
+                    <h3>{{ employee.username }}</h3> 
+                    <p>{{ employee.email }}</p> 
+                    {% if employee.is_superuser %}
+                        <p class="card-price">Admin</p> 
+                    {% else %}
+                        <p class="card-price">Staff</p> 
+                    {% endif %}
+                </div> 
+            </a>
+        {% endfor %}
+    </div> 
+</body>
+</html>

@@ -2,7 +2,7 @@
 <!doctype html>
 <html> 
 <head> 
-    <title>Supermercado</title> 
+    <title>Supermercado | Produtos</title> 
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head> 
 <body> 
@@ -23,8 +23,8 @@
     {% endif %}
 
     {% if request.user.is_superuser %}
-        <a href="/employee/register">
-            <button>Cadastrar funcionário</button>
+        <a href="/employee">
+            <button>Ver funcionários</button>
         </a>
     {% endif %}
 
