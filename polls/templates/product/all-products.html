@@ -26,6 +26,16 @@
         <a href="/employee">
             <button>Ver funcionários</button>
         </a>
+    {% endif %}  
+
+     {% if messages %}
+        {% for message in messages %}
+          {% if message.tags == "success" %}
+            <p style="color: green">{{ message }}</p>
+          {% else %}
+            <p style="color: red">{{ message }}</p>
+          {% endif %}
+        {% endfor %}
     {% endif %}
 
     <h1>Painel de Produtos</h1> 

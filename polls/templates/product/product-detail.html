@@ -10,11 +10,15 @@
   <div class="container">
     <h2>{{ product.NAME }}</h2>
 
-    <form autocomplete="off" action="/product/add/" method="post">
+    <form autocomplete="off" action="/product/add/{{ product.id }}/" method="post">
       {% csrf_token %}
       {% if messages %}
         {% for message in messages %}
-        <p style="color: red">{{ message }}</p>
+          {% if message.tags == "success" %}
+            <p style="color: green">{{ message }}</p>
+          {% else %}
+            <p style="color: red">{{ message }}</p>
+          {% endif %}
         {% endfor %}
       {% endif %}
 

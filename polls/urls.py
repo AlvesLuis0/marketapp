@@ -3,6 +3,7 @@ from django.urls import path
 from .controllers import productController
 from .controllers import employeeController
 from .controllers import authController
+from .controllers import cartController
 
 urlpatterns = [
   path("", productController.getAllProducts, name="index"),
@@ -10,6 +11,7 @@ urlpatterns = [
   path("product/update/<int:pk>/", productController.updateProduct, name="updateProduct"),
   path("product/delete/<int:pk>/", productController.deleteProduct, name="deleteProduct"),
   path("product/<int:pk>/", productController.getProduct, name="getProduct"),
+  path("product/add/<int:pk>/", cartController.addToCart, name="addToCart"),
   path("employee/", employeeController.getAllEmployees, name="getAllEmployees"),
   path("employee/register/", employeeController.registerEmployee, name="registerEmployee"),
   path("employee/update/<int:pk>/", employeeController.updateEmployee, name="updateEmployee"),
