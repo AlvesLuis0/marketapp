@@ -9,6 +9,23 @@ def findProduct(cart, pk):
 	
 	return -1
 
+def getProductQuantityInCart(request, pk):
+	cart = request.session.get("cart")
+
+	if not cart:
+		return 1
+
+	for i in cart:
+		if i[0] == pk: return i[1]
+
+def getCartLength(request):
+	cart = request.session.get("cart")
+
+	if not cart:
+		cart = []
+
+	return len(cart)
+
 @user_passes_test(lambda user: not user.is_staff, "/")
 def addToCart(request, pk):
 	product = PRODUCT.objects.get(pk=pk)
@@ -43,16 +60,20 @@ def getCart(request):
 	if not cart:
 		cart = []
 	
+	total = 0
+
 	for i in cart:
 		product = PRODUCT.objects.get(pk=i[0])
+		total += product.PRICE * int(i[1])
 		products.append({
 			"NAME": product.NAME,
 			"PRICE": product.PRICE,
 			"QUANTITY": i[1],
+			"TOTAL":  product.PRICE * int(i[1]),
 			"id": product.id
 		})
 
-	return render(request, "product/cart.html", { "products": products })
+	return render(request, "product/cart.html", { "products": products, "total": total })
 
 @user_passes_test(lambda user: not user.is_staff, "/")
 def deleteFromCart(request, pk):
@@ -70,3 +91,8 @@ def deleteFromCart(request, pk):
 	cart.remove(cart[index])
 	request.session["cart"] = cart
 	return redirect("/product/cart/")
+
+@user_passes_test(lambda user: not user.is_staff, "/")
+def checkout(request):
+	messages.error(request, "Checkout não implementado")
+	return redirect("/")

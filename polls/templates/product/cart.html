@@ -16,7 +16,8 @@
 				<tr>
 					<th>Item</th>
 					<th>Quantidade</th>
-					<th>Preço</th>
+					<th>Preço Unitário</th>
+					<th>Preço Total</th>
 					<th></th>
 				</tr>
 				{% for product in products %}
@@ -24,13 +25,16 @@
 						<td><a href="/product/{{ product.id }}/">{{ product.NAME }}</a></td>
 						<td>{{ product.QUANTITY }}</td>
 						<td>R$ {{ product.PRICE }}</td>
+						<td>R$ {{ product.TOTAL }}</td>
 						<td><a href="/product/cart/delete/{{ product.id }}/" class="button">Remover</a></td>
 					</tr>
 				{% endfor %}
 			</table>
 
+		<h4 style="text-align: center;">Total a pagar: R$ {{ total }}</h4>
+		
 		<div class="botaocompra">
-			<a href="#" class="compra">Finalizar compra</a>
+			<a href="/product/cart/checkout/" class="compra">Finalizar compra</a>
 		</div>
   {% else %}
 		<h3 style="text-align: center;">Carrinho vazio</h3>

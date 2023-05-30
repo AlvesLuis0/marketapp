@@ -6,10 +6,10 @@
   <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
-  <div class="return">
-    <a href="/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAALNJREFUSEvllNENgzAMBY8N2ISO0I7AJKzQbsQGdATYhBGQJaisKISYmI8KvqM7P9u44uKvupjPfQQ10AEfa0tzWiTwAXisgrdFciTQ8Al4ArOXoBguhewlcIHvCdzgMYErPBRouGWOsbe/1usZiOALNKV0PdtwyFoyAi/rWobFxbbIVZJa061dRUlSf7JLkpxTUZTkSCAz00laoLdsWY5gk8ihM8FTt8hSZPJtboLTwv8XLAoZJhna+F7zAAAAAElFTkSuQmCC"/></a>
-  </div>
-  <a href="/product/cart"><button>Carrinho (0)</button></a>
+  <a href="/">
+    <button>Painel de Itens</button>
+  </a>
+  <a href="/product/cart"><button>Carrinho ({{ cartQuantity }})</button></a>
   <div class="container">
     <h2>{{ product.NAME }}</h2>
 
@@ -26,7 +26,11 @@
       {% endif %}
 
       <label for="quantity">Quantidade (máximo {{ product.QUANTITY }}):</label>
+      {% if quantityInCart %}
+      <input type="number" id="quantity" min="1" value="{{ quantityInCart }}" max="{{ product.QUANTITY }}" name="quantity" placeholder="Digite a quantidade" value="1" required>
+      {% else %}
       <input type="number" id="quantity" min="1" max="{{ product.QUANTITY }}" name="quantity" placeholder="Digite a quantidade" value="1" required>
+      {% endif %}
 
       <button type="submit">Adicionar ao carrinho</button>
     </form>

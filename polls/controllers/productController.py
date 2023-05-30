@@ -2,11 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from ..models import PRODUCT
+from ..controllers.cartController import getCartLength, getProductQuantityInCart
 
 def getAllProducts(request):
 	products = PRODUCT.objects.all()
 	return render(request, "product/all-products.html", {
-		"products": products
+		"products": products, "cartQuantity": getCartLength(request)
 	})
 
 @login_required(login_url="/login/")
@@ -31,7 +32,9 @@ def getProduct(request, pk):
 		template = "product/update-product.html"
 	
 	return render(request, template, {
-		"product": PRODUCT.objects.get(pk=pk)
+		"product": PRODUCT.objects.get(pk=pk),
+		"cartQuantity": getCartLength(request),
+		"quantityInCart": getProductQuantityInCart(request, pk)
 	})
 
 @login_required(login_url="/login/")

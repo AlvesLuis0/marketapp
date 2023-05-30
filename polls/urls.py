@@ -14,6 +14,7 @@ urlpatterns = [
   path("product/add/<int:pk>/", cartController.addToCart, name="addToCart"),
   path("product/cart/", cartController.getCart, name="getCart"),
   path("product/cart/delete/<int:pk>/", cartController.deleteFromCart, name="deleteFromCart"),
+  path("product/cart/checkout/", cartController.checkout, name="checkout"),
 
   path("employee/", employeeController.getAllEmployees, name="getAllEmployees"),
   path("employee/register/", employeeController.registerEmployee, name="registerEmployee"),
