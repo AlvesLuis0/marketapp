@@ -16,6 +16,7 @@ def registerEmployee(request):
 
 		if request.POST["role"] == "staff":
 			user.is_staff = True
+			user.is_superuser = False
 		
 		elif request.POST["role"] == "admin":
 			user.is_staff = True
@@ -49,10 +50,13 @@ def updateEmployee(request, pk):
 		user = User.objects.get(pk=pk)
 		user.username = request.POST["username"]
 		user.email = request.POST["email"]
-		user.set_password(request.POST["password"])
+
+		if request.POST.get("password") != "":
+			user.set_password(request.POST["password"])
 
 		if request.POST["role"] == "staff":
 			user.is_staff = True
+			user.is_superuser = False
 		
 		elif request.POST["role"] == "admin":
 			user.is_staff = True

@@ -29,7 +29,7 @@
       <input type="email" id="email" name="email" value="{{ employee.email }}" placeholder="Digite o email do funcionário" required>
 
       <label for="password">Senha:</label>
-      <input type="password" maxlength="50" id="password" name="password" placeholder="Digite a senha do funcionário" required>
+      <input type="password" maxlength="50" id="password" name="password" placeholder="Digite a senha do funcionário">
 
       {% if employee.is_superuser %}
         <input type="radio" name="role" id="role1" value="staff">
