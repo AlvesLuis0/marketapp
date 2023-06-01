@@ -15,6 +15,11 @@
     <a href="/">
         <button>Ver produtos</button>
     </a>
+    {% if user.is_staff %}
+        <a href="/employee/change-password/">
+            <button>Alterar senha</button>
+        </a>
+    {% endif %}
 
     <h1>Painel de Funcionários</h1> 
     <div class="card-container"> 

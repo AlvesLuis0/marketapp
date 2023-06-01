@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 
 @user_passes_test(lambda user: user.is_superuser, "/login")
 def registerEmployee(request):
@@ -78,3 +78,14 @@ def deleteEmployee(request, pk):
 	except: pass
 
 	return redirect("/employee")
+
+@login_required(login_url="/login/")
+def changePassword(request):
+	if request.method == "GET":
+		return render(request, "employee/change-password.html")
+
+	request.user.set_password(request.POST["password"])
+	request.user.save()
+
+	messages.success(request, "Senha alterada com sucesso")
+	return redirect("/")

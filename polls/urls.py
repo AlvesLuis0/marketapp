@@ -21,6 +21,7 @@ urlpatterns = [
   path("employee/update/<int:pk>/", employeeController.updateEmployee, name="updateEmployee"),
   path("employee/delete/<int:pk>/", employeeController.deleteEmployee, name="deleteEmployee"),
   path("employee/<int:pk>/", employeeController.getEmployee, name="getEmployee"),
+  path("employee/change-password/", employeeController.changePassword, name="changePassword"),
 
   path("login/", authController.loginController, name="login"),
   path("logout/", authController.logoutController, name="logout")

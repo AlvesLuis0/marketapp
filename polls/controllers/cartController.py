@@ -94,5 +94,16 @@ def deleteFromCart(request, pk):
 
 @user_passes_test(lambda user: not user.is_staff, "/")
 def checkout(request):
-	messages.error(request, "Checkout não implementado")
+	cart = request.session.get("cart")
+
+	for i in cart:
+		product = PRODUCT.objects.get(pk=i[0])
+		product.QUANTITY -= int(i[1])
+		product.save()
+		index = findProduct(cart, i[0])
+		cart.pop(index)
+	
+	request.session["cart"] = cart
+
+	messages.success(request, "A compra foi efetuada com sucesso!")
 	return redirect("/")
