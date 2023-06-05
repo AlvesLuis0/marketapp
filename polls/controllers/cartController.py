@@ -100,10 +100,8 @@ def checkout(request):
 		product = PRODUCT.objects.get(pk=i[0])
 		product.QUANTITY -= int(i[1])
 		product.save()
-		index = findProduct(cart, i[0])
-		cart.pop(index)
-	
-	request.session["cart"] = cart
+
+	request.session["cart"] = []
 
 	messages.success(request, "A compra foi efetuada com sucesso!")
 	return redirect("/")
