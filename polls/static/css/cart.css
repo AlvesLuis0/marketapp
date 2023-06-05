@@ -2,8 +2,19 @@ body {
 	font-family: Arial, sans-serif;
 }
 
-h1 {
+h1, h4 {
 	text-align: center;
+	color: #333;
+}
+
+.logo {
+    position: absolute;
+    top: -50px;
+    right: 0;
+}
+    
+.logo img {
+    height: 200px;
 }
 
 table {
@@ -15,6 +26,7 @@ th, td {
 	padding: 8px;
 	text-align: left;
 	border-bottom: 1px solid #ddd;
+	color: #333;
 }
 
 tr:hover {

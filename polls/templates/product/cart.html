@@ -9,6 +9,9 @@
   <div class="return">
     <a href="/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAALNJREFUSEvllNENgzAMBY8N2ISO0I7AJKzQbsQGdATYhBGQJaisKISYmI8KvqM7P9u44uKvupjPfQQ10AEfa0tzWiTwAXisgrdFciTQ8Al4ArOXoBguhewlcIHvCdzgMYErPBRouGWOsbe/1usZiOALNKV0PdtwyFoyAi/rWobFxbbIVZJa061dRUlSf7JLkpxTUZTkSCAz00laoLdsWY5gk8ihM8FTt8hSZPJtboLTwv8XLAoZJhna+F7zAAAAAElFTkSuQmCC"/></a>
   </div>
+	<div class="logo"> 
+		<img src="https://cdn.discordapp.com/attachments/1115297049013927936/1115297337460396173/Logotipo_Nome_Minimalista_Branco_e_Preto__1_-removebg-preview.png"> 
+	</div>
   <h1>Painel de Compras</h1>
   
 	{% if products %}
@@ -31,7 +34,7 @@
 				{% endfor %}
 			</table>
 
-		<h4 style="text-align: center;">Total a pagar: R$ {{ total }}</h4>
+		<h4>Total a pagar: R$ {{ total }}</h4>
 		
 		<div class="botaocompra">
 			<a href="/product/cart/checkout/" class="compra">Finalizar compra</a>
