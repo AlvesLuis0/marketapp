@@ -8,15 +8,17 @@ h1 {
     color: #333;
     text-align: center;
 }
+
 .logo {
-    position: absolute;
-    top: -50px;
-    right: 0;
+	position: absolute;
+	top: -50px;
+	right: 0;
 }
     
-img {
-    height: 200px;
+.logo img {
+	height: 200px;
 }
+
 .card-container {
     display: flex;
     flex-wrap: wrap;
